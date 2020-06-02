@@ -130,9 +130,8 @@ qjpoo/keepalived-k8s
 
 
 ## 测试
-1）首先把192.168.11.122上的haproxy停用，看vip会不会到192.168.11.118上
-
-
+1）首先把192.168.11.122上的haproxy停用，看vip会不会到192.168.11.118上     
+![image](https://github.com/qjpoo/ha-k8s/images/~18ZA~(@IHKIIZ5DGI7G(I0.png)    
 
 2）首先把192.168.11.122上的keepalived停用，看vip会不会到192.168.11.118上
 
