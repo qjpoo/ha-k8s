@@ -1,20 +1,20 @@
 
 ##大致环境说明一下
-**
+*
 有两台master 一台是192.168.11.122 ， 192.168.11.118 ,
 122的网卡名为eth0，118的网卡名为eth0，
 这个在keepalived的docker要注意一下，
 122上面有安装kubernetes，
 而118上没有安装，
 所以用nc来开一个6443的端口来模拟api-server的服务
-**
+*
 
-**
+*
 192.168.11.127是VIP
 haproxy和keepalived镜像地址：
 docker pull qjpoo/haproxy-k8s
 docker pull qjpoo/keepalived-k8s
-**
+*
 ###haproxy.cfg 配置文件,放在了/tmp/a目录下面
 
 cat haproxy.cfg
@@ -141,7 +141,7 @@ qjpoo/haproxy-k8s
 
 
 ---
-**
+*
 没有配置成抢占模式，当192.168.11.122业务都恢复正常了之后，VIP是不会到192.168.11.122上面的来
-**
+*
 
