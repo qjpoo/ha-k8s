@@ -1,5 +1,5 @@
 
-##大致环境说明一下
+##大致环境说明一下    
 *有两台master 一台是192.168.11.122 ， 192.168.11.118 ,
 122的网卡名为eth0，118的网卡名为eth0，
 这个在keepalived的docker要注意一下，
@@ -7,9 +7,9 @@
 而118上没有安装，
 所以用nc来开一个6443的端口来模拟api-server的服务*
 
-*192.168.11.127是VIP
-haproxy和keepalived镜像地址：
-docker pull qjpoo/haproxy-k8s
+*192.168.11.127是VIP     
+haproxy和keepalived镜像地址：    
+docker pull qjpoo/haproxy-k8s    
 docker pull qjpoo/keepalived-k8s*
 ###haproxy.cfg 配置文件,放在了/tmp/a目录下面
 
