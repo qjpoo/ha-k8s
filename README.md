@@ -70,6 +70,19 @@ backend be_k8s_6443
 
 
 192,168.11.122上执行
+
+```
+docker run -d --restart=always \
+--name haproxy \
+-p 6444:6444 \
+-e MasterIP1=192.168.11.122 \
+-e MasterIP2=192.168.11.118 \
+-e MasterPort=6443 \
+-v /tmp/a/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg \
+qjpoo/haproxy-k8s
+```
+
+
 ```
 docker run -itd --restart=always \
 --name=keepalived \
@@ -83,6 +96,12 @@ docker run -itd --restart=always \
 -e MCAST_GROUP=224.0.0.18 \
 qjpoo/keepalived-k8s
 ```
+------------
+
+
+###在192.168.11.118上执行 由于我在118上没有安装kubernetes，所以用nc来模拟一个6443的端口
+nc -l -k 6443
+
 
 ```
 docker run -d --restart=always \
@@ -95,13 +114,6 @@ docker run -d --restart=always \
 qjpoo/haproxy-k8s
 ```
 
-
-
-------------
-
-
-###在192.168.11.118上执行 由于我在118上没有安装kubernetes，所以用nc来模拟一个6443的端口
-nc -l -k 6443
 
 ```
 docker run -itd --restart=always --name=keepalived \
@@ -115,16 +127,7 @@ docker run -itd --restart=always --name=keepalived \
 -eMCAST_GROUP=224.0.0.18 \
 qjpoo/keepalived-k8s
 ```
-```
-docker run -d --restart=always \
---name haproxy \
--p 6444:6444 \
--e MasterIP1=192.168.11.122 \
--e MasterIP2=192.168.11.118 \
--e MasterPort=6443 \
--v /tmp/a/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg \
-qjpoo/haproxy-k8s
-```
+
 
 ## 测试
 1）首先把192.168.11.122上的haproxy停用，看vip会不会到192.168.11.118上
